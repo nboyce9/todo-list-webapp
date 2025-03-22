@@ -9,11 +9,14 @@
 </head>
 <body>
     <h1>To-Do List</h1>
-    <form id="add-task-form">
-        <input id="task" type="text" name="task" placeholder="Enter task" required>
-        <button type="submit" onclick="addTask()">Add</button>
-    </form>
+    <div class="tasks">
+        <h2>Tasks</h2>
+        <form id="add-task-form">
+            <input id="task" type="text" name="task" placeholder="Enter task" required>
+            <button id="add-task-btn" type="submit" onclick="addTask()">Add</button>
+        </form>
 
-    <ul id="task-list"></ul>
+        <ul id="task-list"></ul>
+    </div>
 </body>
 </html>

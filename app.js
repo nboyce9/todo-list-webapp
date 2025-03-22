@@ -1,3 +1,10 @@
+function deleteTask(){
+    alert("deleted");
+    // document.getElementById("task").remove;
+    // document.getElementById("task-list").removeChild(task);
+       
+
+}
 function addTask() {
     var task = document.getElementById("task").value;
     if (task) {
@@ -8,7 +15,7 @@ function addTask() {
                 <span>${task}</span>
             </label>
             <span class="edit-btn">Edit</span>
-            <span class="delete-btn">Delete</span>
+            <button class="delete-btn" type="submit" onclick="deleteTask()">Delete</button>
             `;
         document.getElementById("task-list").appendChild(li);
         document.getElementById("task").value = "";
@@ -17,5 +24,18 @@ function addTask() {
         const editBtn = li.querySelector(".edit-btn");
         const taskSpan = li.querySelector("span");
         const deleteBtn = li.querySelector(".delete-btn");
+    
+        editBtn.innerHTML =`
+            <label>
+                <button id="edit-btn" type="submit" onclick="editTask()">Edit</button>
+            </label>`;
+        
+        //deleteBtn.innerHTML =`<button id="delete-btn" type="submit" onclick="deleteTask()">Delete</button>`;
     }
+  
+}
+
+
+function editTask(){
+    alert("edited");
 }
