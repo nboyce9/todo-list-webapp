@@ -12,15 +12,19 @@ h2{
 }
 .tasks{
     background-color: whitesmoke;
+    width: 80%;
     display: block;
-    margin: 50px;
+    margin: 0 auto;
     text-align: center;
     border-radius: 8px;
     border-right: 2px solid plum;
+    border-bottom: 2px solid plum;
     padding: 5px 0px 50px;
 }
 
 #task{
+    display: inline;
+    width: 60%;
     border-radius: 6px;
     border: none;
     border-right: 2px solid plum;
@@ -35,25 +39,41 @@ h2{
     color:whitesmoke;
     background-color: rgba(206, 169, 241, 0.568);
 }
-li{
+ul{
+    text-align:left;
     list-style: none;
-    text-align: left;
-    padding-left: 20px;
-    color: plum;
+    padding: 15px 20px;
+    color: rgb(92, 26, 92);
 }
-#edit-btn{
-    color: rgba(206, 169, 241, 0.568);
-    flex-wrap: nowrap;
-    justify-content:space-evenly;
-    /* margin-left: 80%; */
-    /* margin-left: auto; */
-    /* align-content: end; */
-    border: none;
-    background-color: whitesmoke;
+li{
+    /* border: none; */
+    margin-bottom: 2px;
+    padding: 4px 4px;
+    border-radius: 5px;
+    border: 1px solid rgba(206, 169, 241, 0.568);
+    border-bottom: 2px solid plum;
+    border-right: 2px solid plum;
+
 }
 
-#delete-btn{
+.edit-btn{
+    color: plum;
+    float: right;
+    border: none;
+    border-right: 1px solid rgba(206, 169, 241, 0.568
+    );
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin: 0 25px 0 4px;
+}
+
+.delete-btn{
     color: red;
     border: none;
+    float: right;
+    border-right: 1px solid red;
+    border-radius: 5px;
     background-color: whitesmoke;
+    margin: 0 7px 0 4px;
+    opacity: 0.6;
 }

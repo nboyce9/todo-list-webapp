@@ -1,10 +1,3 @@
-function deleteTask(){
-    alert("deleted");
-    // document.getElementById("task").remove;
-    // document.getElementById("task-list").removeChild(task);
-       
-
-}
 function addTask() {
     var task = document.getElementById("task").value;
     if (task) {
@@ -14,8 +7,8 @@ function addTask() {
                 <input type="checkbox">
                 <span>${task}</span>
             </label>
-            <span class="edit-btn">Edit</span>
-            <button class="delete-btn" type="submit" onclick="deleteTask()">Delete</button>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
             `;
         document.getElementById("task-list").appendChild(li);
         document.getElementById("task").value = "";
@@ -24,18 +17,25 @@ function addTask() {
         const editBtn = li.querySelector(".edit-btn");
         const taskSpan = li.querySelector("span");
         const deleteBtn = li.querySelector(".delete-btn");
+
+        checkbox.addEventListener("click", function () {
+            li.classList.toggle("completed", checkbox.checked);
+          });
+
+        editBtn.addEventListener("click", function () {
+            const update = prompt("Edit task:", taskSpan.textContent);
+            if (update !== null) {
+              taskSpan.textContent = update;
+              li.classList.remove("completed");
+            }
+          });
     
-        editBtn.innerHTML =`
-            <label>
-                <button id="edit-btn" type="submit" onclick="editTask()">Edit</button>
-            </label>`;
-        
-        //deleteBtn.innerHTML =`<button id="delete-btn" type="submit" onclick="deleteTask()">Delete</button>`;
+        deleteBtn.addEventListener("click", function () {
+            if (confirm("Are you sure you want to delete this task?")) {
+              li.remove();
+            
+            }
+          });
     }
   
-}
-
-
-function editTask(){
-    alert("edited");
 }
