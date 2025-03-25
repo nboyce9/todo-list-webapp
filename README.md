@@ -39,6 +39,11 @@ You need a web browser to run this application.
 4. Use the "Delete" button to remove a task.
 5. Click the checkbox to mark a task as completed.
 
+## Screenshots
+    ![Screenshot 2025-03-25 at 06-20-14 To-Do](https://github.com/user-attachments/assets/5d0efc31-282d-463d-86a8-c225d709c229)
+    ![Screenshot 2025-03-25 at 06-21-07 To-Do](https://github.com/user-attachments/assets/9f840294-6188-4eb5-8469-978c3232b12c)
+
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request.
