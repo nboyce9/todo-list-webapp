@@ -55,6 +55,11 @@ li{
     border-right: 2px solid plum;
 
 }
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    border: 1px solid gray;
+  }
 
 .edit-btn{
     color: plum;
@@ -76,4 +81,33 @@ li{
     background-color: whitesmoke;
     margin: 0 7px 0 4px;
     opacity: 0.6;
+}
+.counter-container{
+    display: block;
+    margin: 0 auto;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: plum;
+    width: 65%;
+    border: none;
+    border-right: 2px solid rgb(92, 26, 92);
+    border-bottom: 2px solid rgb(92, 26, 92);
+    
+}
+hr{
+    border: 1px solid plum;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+footer{
+    text-align: center;
+    margin: 40px;
+    font-size: small;
+    opacity: 0.5;
 }
