@@ -9,10 +9,17 @@
 </head>
 <body>
     <h1>To-Do List</h1>
+    <div class="categories">
+        <h2>Categories</h2>
+        <form id="add-category-form">
+            <input id="category" type="text" name="category" placeholder="Enter a category" required>
+            <button id="add-category-btn" type="submit" onclick="addCategory()">Add</button>
+        </form>
+    </div>
     <div class="tasks">
         <h2>Tasks</h2>
         <form id="add-task-form">
-            <input id="task" type="text" name="task" placeholder="Enter task" required>
+            <input id="task" type="text" name="task" placeholder="Enter a task" required>
             <button id="add-task-btn" type="submit" onclick="addTask()">Add</button>
         </form>
 
