@@ -83,3 +83,25 @@ function progress(completedTasks, uncompletedTasks) {
         document.getElementById("motivation").style.color = "red";
     }
   }
+
+function addCategory(){
+  var category = document.getElementById("category").value;
+  if (category) {
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <label>
+            <input type="checkbox">
+            <span>${category}</span>
+        </label>
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+        `;
+    document.getElementById("category-list").appendChild(li);
+    document.getElementById("category").value = "";
+
+    const checkbox = li.querySelector("input");
+    const editBtn = li.querySelector(".edit-btn");
+    const taskSpan = li.querySelector("span");
+    const deleteBtn = li.querySelector(".delete-btn");
+  }
+}
