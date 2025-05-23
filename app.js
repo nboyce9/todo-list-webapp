@@ -90,18 +90,22 @@ function addCategory(){
     const li = document.createElement("li");
     li.innerHTML = `
         <label>
-            <input type="checkbox">
             <span>${category}</span>
         </label>
-        <button class="edit-btn">Edit</button>
+        <button class="edit-btn">+</button>
         <button class="delete-btn">Delete</button>
         `;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
 
-    const checkbox = li.querySelector("input");
-    const editBtn = li.querySelector(".edit-btn");
-    const taskSpan = li.querySelector("span");
+    const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
+
+
+  deleteBtn.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete this category?")) {
+        li.remove();
+      }
+    });
   }
 }
