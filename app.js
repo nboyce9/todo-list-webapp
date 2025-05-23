@@ -1,10 +1,11 @@
 function addTask() {
     var task = document.getElementById("task").value;
-    if (task) {
+    if (task) {   
         const li = document.createElement("li");
         li.innerHTML = `
             <label>
                 <input type="checkbox">
+                
                 <span>${task}</span>
             </label>
             <button class="edit-btn">Edit</button>
@@ -106,6 +107,9 @@ function addCategory(){
         `;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
+    // if(li){
+    //   addTask();
+    // }
 
     const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
@@ -121,13 +125,12 @@ function addCategory(){
   addBtn.addEventListener("click", function(){
     var x = document.querySelector(".task-container");
     x.style.display = "block";
+    
   })
 
   openBtn.addEventListener("click", function(){
-    // alert("something happened.");
-    hideTaskDiv();
     //open the category to be able to add tasks.
-   
+    hideTaskDiv();
   }); 
   }
 }
