@@ -22,6 +22,11 @@ h2{
     padding: 5px 0px 50px;
 }
 
+#add-category-form{
+    text-align: center;
+    /* justify-content: center; */
+}
+
 #task,
 #category{
     display: inline;
@@ -30,7 +35,6 @@ h2{
     border: none;
     border-right: 2px solid plum;
     padding: 7px;
-    justify-content: center;
 }
 
 #add-task-btn,
@@ -41,7 +45,6 @@ h2{
     padding: 7px;
     color:whitesmoke;
     background-color: rgba(206, 169, 241, 0.568);
-    justify-content: center;
 
 }
 ul{
