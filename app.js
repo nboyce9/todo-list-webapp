@@ -84,6 +84,15 @@ function progress(completedTasks, uncompletedTasks) {
     }
   }
 
+  function hideTaskDiv() {
+    var x = document.getElementById("");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 function addCategory(){
   var category = document.getElementById("category").value;
   if (category) {
@@ -92,14 +101,15 @@ function addCategory(){
         <label>
             <span>${category}</span>
         </label>
-        <button class="edit-btn">+</button>
+        <button class="add-btn">+</button>
         <button class="delete-btn">Delete</button>
         `;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
 
-    const addBtn = li.querySelector(".edit-btn");
+    const addBtn = li.querySelector(".add-btn");
     const deleteBtn = li.querySelector(".delete-btn");
+    
 
 
   deleteBtn.addEventListener("click", function () {
@@ -107,5 +117,12 @@ function addCategory(){
         li.remove();
       }
     });
+  addBtn.addEventListener("click", function(){
+    addTask();
+  })
+
+  li.addEventListener("click", function(){
+    //open the category to be able to add tasks.
+  }); 
   }
 }
