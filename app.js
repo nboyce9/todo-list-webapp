@@ -85,7 +85,7 @@ function progress(completedTasks, uncompletedTasks) {
   }
 
   function hideTaskDiv() {
-    var x = document.getElementById("");
+    var x = document.getElementById(".task-container");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -101,13 +101,13 @@ function addCategory(){
         <label>
             <span>${category}</span>
         </label>
-        <button class="add-btn">+</button>
+        <button class="edit-btn"> + </button>
         <button class="delete-btn">Delete</button>
         `;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
 
-    const addBtn = li.querySelector(".add-btn");
+    const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
     
 
@@ -118,7 +118,8 @@ function addCategory(){
       }
     });
   addBtn.addEventListener("click", function(){
-    addTask();
+    var x = document.querySelector(".task-container");
+    x.style.display = "block";
   })
 
   li.addEventListener("click", function(){
