@@ -30,7 +30,7 @@ h2{
     border: none;
     border-right: 2px solid plum;
     padding: 7px;
-    margin: 0 auto;
+    justify-content: center;
 }
 
 #add-task-btn,
@@ -41,6 +41,7 @@ h2{
     padding: 7px;
     color:whitesmoke;
     background-color: rgba(206, 169, 241, 0.568);
+    justify-content: center;
 
 }
 ul{
