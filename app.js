@@ -85,7 +85,7 @@ function progress(completedTasks, uncompletedTasks) {
   }
 
   function hideTaskDiv() {
-    var x = document.getElementById(".task-container");
+    var x = document.querySelector(".task-container");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -99,7 +99,7 @@ function addCategory(){
     const li = document.createElement("li");
     li.innerHTML = `
         <label>
-            <span>${category}</span>
+            <span class="category-item">${category}</span>
         </label>
         <button class="edit-btn"> + </button>
         <button class="delete-btn">Delete</button>
@@ -109,6 +109,7 @@ function addCategory(){
 
     const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
+    const openBtn = li.querySelector(".category-item");
     
 
 
@@ -122,8 +123,11 @@ function addCategory(){
     x.style.display = "block";
   })
 
-  li.addEventListener("click", function(){
+  openBtn.addEventListener("click", function(){
+    // alert("something happened.");
+    hideTaskDiv();
     //open the category to be able to add tasks.
+   
   }); 
   }
 }
