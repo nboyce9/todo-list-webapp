@@ -22,22 +22,26 @@ h2{
     padding: 5px 0px 50px;
 }
 
-#task{
+#task,
+#category{
     display: inline;
     width: 60%;
     border-radius: 6px;
     border: none;
     border-right: 2px solid plum;
     padding: 7px;
+    margin: 0 auto;
 }
 
-#add-task-btn{
+#add-task-btn,
+#add-category-btn{
     border-radius: 6px;
     border: none;
     border-right: 2px solid plum;
     padding: 7px;
     color:whitesmoke;
     background-color: rgba(206, 169, 241, 0.568);
+
 }
 ul{
     text-align:left;
