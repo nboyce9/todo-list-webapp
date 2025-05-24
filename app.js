@@ -13,7 +13,7 @@ function addTask(taskId) {
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
             `;
-        document.getElementById("task-list").appendChild(li);
+        document.getElementById(`tasks-${taskId}`).appendChild(li);
         document.getElementById(`task-${taskId}`).value = "";
 
         const checkbox = li.querySelector("input");
@@ -97,7 +97,7 @@ function progress(completedTasks, uncompletedTasks) {
   }
 
 function addCategory(){
-  const taskId =  Date.now();
+  const taskId =  "cat-" + Date.now();
   var category = document.getElementById("category").value;
   if (category) {
     const li = document.createElement("li");
@@ -113,7 +113,12 @@ function addCategory(){
     
     const taskSection = document.createElement("div");
     taskSection.className = "task-container";
-    taskSection.id =`cat-${taskId}`;
+    taskSection.id = taskId;
+    taskSection.innerHTML = `
+    <input id="task-${taskId}" placeholder="New task" />
+    <button type="submit" onclick="addTask('${taskId}')">Add Task</button>
+    <ul id ="tasks-${taskId}"><ul>
+  `;
     document.getElementById("cat-sections").appendChild(taskSection);
     
 
@@ -131,11 +136,6 @@ function addCategory(){
   addBtn.addEventListener("click", function(){
 
     console.log(taskId);
-    taskSection.innerHTML = `
-    <input id="task-${taskId}" placeholder="New task" />
-    <button type="submit" onclick="addTask(${taskId})">Add Task</button>
-    <ul id ="task-list"><ul>
-  `;
     
   })
 
