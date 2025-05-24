@@ -14,7 +14,7 @@ function addTask(taskId) {
             <button class="delete-btn">Delete</button>
             `;
         document.getElementById("task-list").appendChild(li);
-        document.getElementById(task).value = "";
+        document.getElementById(`task-${taskId}`).value = "";
 
         const checkbox = li.querySelector("input");
         const editBtn = li.querySelector(".edit-btn");
@@ -127,7 +127,7 @@ function addCategory(){
     });
   addBtn.addEventListener("click", function(){
     var x = document.querySelector(".task-container");
-    // x.style.display = "block";
+    x.style.display = "block";
     const taskId =  Date.now();
     console.log(taskId);
     x.innerHTML = `
