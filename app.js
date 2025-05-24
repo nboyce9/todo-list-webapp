@@ -42,24 +42,24 @@ function addTask() {
             }
           });
 
-          const completedCounter = document.getElementById("completed-counter");
-          const uncompletedCounter = document.getElementById("uncompleted-counter");
-          const totalCounter = document.getElementById("total-counter");
-         
-          
-          function updateCounters() {
-            const completedTasks = document.querySelectorAll(".completed").length;
-            const uncompletedTasks =
-              document.querySelectorAll("li:not(.completed)").length;
-            progress(completedTasks, uncompletedTasks);
-
-          }
-    
     }else{
         alert("Please enter a task");
         return;
     }
  
+}
+
+const completedCounter = document.getElementById("completed-counter");
+const uncompletedCounter = document.getElementById("uncompleted-counter");
+const totalCounter = document.getElementById("total-counter");
+
+
+function updateCounters() {
+  const completedTasks = document.querySelectorAll(".completed").length;
+  const uncompletedTasks =
+    document.querySelectorAll("li:not(.completed)").length;
+  progress(completedTasks, uncompletedTasks);
+
 }
 
 function progress(completedTasks, uncompletedTasks) {
@@ -107,9 +107,10 @@ function addCategory(){
         `;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
-    // if(li){
-    //   addTask();
-    // }
+    
+    const taskSection = document.createElement("div");
+    taskSection.className = "task-container";
+    // taskSection.style = "none";
 
     const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
