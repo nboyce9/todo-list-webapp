@@ -97,6 +97,7 @@ function progress(completedTasks, uncompletedTasks) {
   }
 
 function addCategory(){
+  const taskId =  Date.now();
   var category = document.getElementById("category").value;
   if (category) {
     const li = document.createElement("li");
@@ -112,7 +113,9 @@ function addCategory(){
     
     const taskSection = document.createElement("div");
     taskSection.className = "task-container";
-    // taskSection.style = "none";
+    taskSection.id =`cat-${taskId}`;
+    document.getElementById("cat-sections").appendChild(taskSection);
+    
 
     const addBtn = li.querySelector(".edit-btn");
     const deleteBtn = li.querySelector(".delete-btn");
@@ -126,11 +129,9 @@ function addCategory(){
       }
     });
   addBtn.addEventListener("click", function(){
-    var x = document.querySelector(".task-container");
-    x.style.display = "block";
-    const taskId =  Date.now();
+
     console.log(taskId);
-    x.innerHTML = `
+    taskSection.innerHTML = `
     <input id="task-${taskId}" placeholder="New task" />
     <button type="submit" onclick="addTask(${taskId})">Add Task</button>
     <ul id ="task-list"><ul>
