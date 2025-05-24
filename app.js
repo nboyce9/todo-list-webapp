@@ -1,5 +1,7 @@
-function addTask() {
-    var task = document.getElementById("task").value;
+function addTask(taskId) {
+  console.log(taskId);
+    var task = document.getElementById(`task-${taskId}`).value;
+    console.log(task);
     if (task) {   
         const li = document.createElement("li");
         li.innerHTML = `
@@ -12,7 +14,7 @@ function addTask() {
             <button class="delete-btn">Delete</button>
             `;
         document.getElementById("task-list").appendChild(li);
-        document.getElementById("task").value = "";
+        document.getElementById(task).value = "";
 
         const checkbox = li.querySelector("input");
         const editBtn = li.querySelector(".edit-btn");
@@ -125,7 +127,14 @@ function addCategory(){
     });
   addBtn.addEventListener("click", function(){
     var x = document.querySelector(".task-container");
-    x.style.display = "block";
+    // x.style.display = "block";
+    const taskId =  Date.now();
+    console.log(taskId);
+    x.innerHTML = `
+    <input id="task-${taskId}" placeholder="New task" />
+    <button type="submit" onclick="addTask(${taskId})">Add Task</button>
+    <ul id ="task-list"><ul>
+  `;
     
   })
 
