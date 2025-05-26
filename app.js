@@ -20,11 +20,10 @@ function addTask(taskId) {
         const editBtn = li.querySelector(".edit-btn");
         const taskSpan = li.querySelector("span");
         const deleteBtn = li.querySelector(".delete-btn");
-        const section = document.querySelector(".task-container");
 
         checkbox.addEventListener("click", function () {
             li.classList.toggle("completed", checkbox.checked);
-            updateCounters(section);
+            updateCounters(taskId);
           });
 
           editBtn.addEventListener("click", function () {
@@ -34,14 +33,14 @@ function addTask(taskId) {
               li.classList.remove("completed");
               //add the code below
               checkbox.checked = false;
-              updateCounters(section);
+              updateCounters(taskId);
             }
           });
     
         deleteBtn.addEventListener("click", function () {
             if (confirm("Are you sure you want to delete this task?")) {
               li.remove();
-              updateCounters(section);
+              updateCounters(taskId);
             }
           });
 
@@ -52,18 +51,16 @@ function addTask(taskId) {
  
 }
 
-const completedCounter = document.getElementById("completed-counter");
-const uncompletedCounter = document.getElementById("uncompleted-counter");
-const totalCounter = document.getElementById("total-counter");
 
+function updateCounters(taskId) {
+  const taskContainer = document.getElementById(`tasks-${taskId}`);
+  const tasks = taskContainer.querySelectorAll("li");
+  const completed = taskContainer.querySelectorAll(".completed").length;
+  const uncompleted = tasks.length - completed;
 
-function updateCounters(section) {
-  const completedTasks = section.qquerySelectorAll(".completed").length;
-  const uncompletedTasks =
-    section.querySelectorAll("li:not(.completed)").length;
-  progress(completedTasks, uncompletedTasks);
-
+  progress(completed, uncompleted);
 }
+
 
 function progress(completedTasks, uncompletedTasks) {
     const totalTasks = completedTasks + uncompletedTasks;
@@ -143,7 +140,7 @@ function addCategory(){
     
     taskSection.innerHTML = `
     <input id="task-${taskId}" placeholder="New task" />
-    <button type="submit" onclick="addTask('${taskId}')">Add Task</button>
+    <button type="submit" onclick="addTask('${taskId}'), updateCounters('${taskId}')">Add Task</button>
     <ul id="tasks-${taskId}"><ul>
   `;
   toggleTaskDiv(taskSection);
