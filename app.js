@@ -20,10 +20,11 @@ function addTask(taskId) {
         const editBtn = li.querySelector(".edit-btn");
         const taskSpan = li.querySelector("span");
         const deleteBtn = li.querySelector(".delete-btn");
+        const section = document.querySelector(".task-container");
 
         checkbox.addEventListener("click", function () {
             li.classList.toggle("completed", checkbox.checked);
-            updateCounters();
+            updateCounters(section);
           });
 
           editBtn.addEventListener("click", function () {
@@ -33,14 +34,14 @@ function addTask(taskId) {
               li.classList.remove("completed");
               //add the code below
               checkbox.checked = false;
-              updateCounters();
+              updateCounters(section);
             }
           });
     
         deleteBtn.addEventListener("click", function () {
             if (confirm("Are you sure you want to delete this task?")) {
               li.remove();
-              updateCounters();
+              updateCounters(section);
             }
           });
 
@@ -56,10 +57,10 @@ const uncompletedCounter = document.getElementById("uncompleted-counter");
 const totalCounter = document.getElementById("total-counter");
 
 
-function updateCounters() {
-  const completedTasks = document.querySelectorAll(".completed").length;
+function updateCounters(section) {
+  const completedTasks = section.qquerySelectorAll(".completed").length;
   const uncompletedTasks =
-    document.querySelectorAll("li:not(.completed)").length;
+    section.querySelectorAll("li:not(.completed)").length;
   progress(completedTasks, uncompletedTasks);
 
 }
