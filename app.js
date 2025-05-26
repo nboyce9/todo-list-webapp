@@ -50,16 +50,13 @@ function addTask(taskId) {
     }
  
 }
-const completedCounter = document.getElementById("completed-counter");
-const uncompletedCounter = document.getElementById("uncompleted-counter");
-const totalCounter = document.getElementById("total-counter");
 
 function updateCounters(taskId) {
   const taskContainer = document.getElementById(`tasks-${taskId}`);
   const tasks = taskContainer.querySelectorAll("li");
   const completed = taskContainer.querySelectorAll(".completed").length;
   const uncompleted = tasks.length - completed;
-
+  document.getElementById(`cat-${taskId}`).textContent = completed + "/" + (completed + uncompleted);
   progress(completed, uncompleted);
 }
 
@@ -68,7 +65,7 @@ function progress(completedTasks, uncompletedTasks) {
     const totalTasks = completedTasks + uncompletedTasks;
     const progress = Math.round((completedTasks / totalTasks) * 100);
     document.getElementById("progress").style.width = progress + "%";
-    document.getElementById("progress").textContent = progress + "%";
+    document.getElementById("progress").textContent = progress + "%";  
     if(progress === 100){
         document.getElementById("motivation").textContent = "Well done! You have completed all your tasks!";
         document.getElementById("motivation").style.color = "green";
@@ -110,9 +107,9 @@ function addCategory(){
         <label>
             <div class="category-item">${category}</div>
         </label>
+        <span class="cat-progress" id="cat-${taskId}"></span>
         <button class="edit-btn"> + </button>
         <button class="delete-btn">Delete</button>
-        
         `;
 
         const taskSection = document.createElement("div");

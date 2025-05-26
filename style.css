@@ -70,7 +70,7 @@ li{
     border: 1px solid gray;
   }
 
-.edit-btn{
+.edit-btn, .cat-progress{
     color: plum;
     float: right;
     border: none;
