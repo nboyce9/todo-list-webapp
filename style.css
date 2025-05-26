@@ -119,3 +119,11 @@ footer{
     font-size: small;
     opacity: 0.5;
 }
+.task-container {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    background: #f7eaff;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
