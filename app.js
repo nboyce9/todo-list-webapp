@@ -139,8 +139,8 @@ function addCategory(){
   addBtn.addEventListener("click", function(){
     
     taskSection.innerHTML = `
-    <input id="task-${taskId}" placeholder="New task" />
-    <button type="submit" onclick="addTask('${taskId}'), updateCounters('${taskId}')">Add Task</button>
+    <input class="task-input" id="task-${taskId}" placeholder="New task" />
+    <button id="add-task-btn" type="submit" onclick="addTask('${taskId}'), updateCounters('${taskId}')">Add Task</button>
     <ul id="tasks-${taskId}"><ul>
   `;
   toggleTaskDiv(taskSection);
