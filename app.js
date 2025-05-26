@@ -50,7 +50,9 @@ function addTask(taskId) {
     }
  
 }
-
+const completedCounter = document.getElementById("completed-counter");
+const uncompletedCounter = document.getElementById("uncompleted-counter");
+const totalCounter = document.getElementById("total-counter");
 
 function updateCounters(taskId) {
   const taskContainer = document.getElementById(`tasks-${taskId}`);
@@ -110,6 +112,7 @@ function addCategory(){
         </label>
         <button class="edit-btn"> + </button>
         <button class="delete-btn">Delete</button>
+        
         `;
 
         const taskSection = document.createElement("div");
@@ -151,6 +154,7 @@ function addCategory(){
   openBtn.addEventListener("click", function(){
     //open the category to be able to add tasks.
     toggleTaskDiv(taskSection);
+    updateCounters(taskId);
   }); 
   }
 }
