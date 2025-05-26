@@ -131,6 +131,7 @@ function addCategory(){
   deleteBtn.addEventListener("click", function () {
       if (confirm("Are you sure you want to delete this category?")) {
         li.remove();
+        taskSection.remove();
       }
     });
   addBtn.addEventListener("click", function(){
