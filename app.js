@@ -87,14 +87,19 @@ function progress(completedTasks, uncompletedTasks) {
     }
   }
 
-  function hideTaskDiv() {
-    var x = document.querySelector(".task-container");
-    if (x.style.display === "none") {
-      x.style.display = "block";
+  function toggleTaskDiv(taskSection) {
+    document.querySelectorAll(".task-container").forEach(sec => {
+      sec.style.display = "none";
+    });
+  
+    // toggle current one
+    if (taskSection.style.display === "none" || taskSection.style.display === "") {
+      taskSection.style.display = "block";
     } else {
-      x.style.display = "none";
+      taskSection.style.display = "none";
     }
   }
+  
 
 function addCategory(){
   const taskId =  "cat-" + Date.now();
@@ -103,22 +108,21 @@ function addCategory(){
     const li = document.createElement("li");
     li.innerHTML = `
         <label>
-            <span class="category-item">${category}</span>
+            <div class="category-item">${category}</div>
         </label>
         <button class="edit-btn"> + </button>
         <button class="delete-btn">Delete</button>
         `;
+
+        const taskSection = document.createElement("div");
+        taskSection.className = "task-container";
+        taskSection.id = taskId;
     document.getElementById("category-list").appendChild(li);
     document.getElementById("category").value = "";
     
-    const taskSection = document.createElement("div");
-    taskSection.className = "task-container";
-    taskSection.id = taskId;
-    taskSection.innerHTML = `
-    <input id="task-${taskId}" placeholder="New task" />
-    <button type="submit" onclick="addTask('${taskId}')">Add Task</button>
-    <ul id ="tasks-${taskId}"><ul>
-  `;
+    
+
+    
     document.getElementById("cat-sections").appendChild(taskSection);
     
 
@@ -135,14 +139,20 @@ function addCategory(){
       }
     });
   addBtn.addEventListener("click", function(){
-
-    console.log(taskId);
+    
+    taskSection.innerHTML = `
+    <input id="task-${taskId}" placeholder="New task" />
+    <button type="submit" onclick="addTask('${taskId}')">Add Task</button>
+    <ul id="tasks-${taskId}"><ul>
+  `;
+  toggleTaskDiv(taskSection);
+    // console.log(taskId);
     
   })
 
   openBtn.addEventListener("click", function(){
     //open the category to be able to add tasks.
-    hideTaskDiv();
+    toggleTaskDiv(taskSection);
   }); 
   }
 }
